@@ -1,0 +1,344 @@
+body{
+    height: 100%;
+    width: 100%;                   /* Giving the body 100% width and body for making it responsive later */
+    background-color: white;
+}
+
+header{
+    display: flex;
+    justify-content: left;
+    align-items: center;            /* Header should always contain 10% of the pages top part */
+    height: 10%;
+    width: 100%;
+}
+header > img{
+    width: 5%;
+    height: fit-content;
+    padding: .5vw;
+}
+
+section{
+    position: relative;
+    display: flex;                  /* Section is the part where all the containers should be in so 90% of the page is used */
+    height: 90%;
+}
+
+.section-leftside{
+    width: 20%;
+    /* border-radius: 50px; */
+    background-color: #3b5786;      /* Left part of the page where adding and updating parts are */
+    padding: 1vw; 
+}
+
+.options{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-evenly;
+}
+
+.select{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* #6CBDE9 */
+.section-middle {
+    display: flex;
+    flex-direction: column;             /* Middle part of the section where result table and search methods are implemented */
+    align-items: flex-start;            /* The 'align-items' property is set to 'flex-start' to align items to the right. */
+    width: 80%;                                                     
+    text-align: center;
+    background-color: #a2d2df;
+    padding: 1vw;
+}
+
+.listButtons {
+    padding: 1vw;
+    height: fit-content;
+    /* background-color: #d4e4f3; */
+    background-color: white;
+    border: 1px solid black;
+    margin-bottom: 1em; /* Add space between listButtons and resultTable */
+}
+
+.listButtons > h3 {
+    margin: 0;
+    padding-bottom: 0.5vw;
+}
+
+.resultTable {
+    max-height: 40rem;
+    max-width: 90%;                     /* resultTable class is for holding the result tables created from student or lecture lists */
+    overflow: auto;
+}
+
+
+.search-bar{
+    display: inline-block; 
+    /* background-color: #d4e4f3; */
+    background-color: white;
+    padding: .3vw;
+    margin: 1vw;                         /* Used postion as absolute and assigned the top and right variables to 0 to put the search-bar always on the right top part of the page */
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid black ;
+}
+.search-bar > h3{
+    margin: 0;
+    padding: 0;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.container{
+    padding: 10px;                   
+    border-radius: 15px;
+    text-align: center;
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: 0 auto;                     /* Used for all the add and update part containers */
+    border: 0;
+    background-color: #d4e4f3;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+         /* features of table.  */ 
+        
+table {
+    /* width:fit-content; */
+    border-collapse: collapse;
+    overflow: hidden;
+    background-color: white;
+}
+        
+th,
+td {
+    padding: 1vw;
+    /* background-color: rgba(158, 99, 99, 0.2); */
+    color: #1f1f1f;
+}
+
+#passed, #failed{
+    width: 2%;      /* These are for making the show buttons under the number */
+}                       
+
+
+th{
+    border-bottom: 1px solid black; 
+}
+
+td:nth-child(even) {
+    background-color: #f2f2f2;
+  }                                             /* used for making the tables look stripped */
+th:nth-child(even){
+    background-color: #f2f2f2;
+}
+        
+th {
+    text-align: left;
+}
+        
+tbody tr:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+
+        /* features of all buttons. */
+
+.btn {
+  appearance: none;
+  background-color: #257ca3;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+
+.btn:hover {
+  background-color: rgb(43, 101, 117);
+}
+
+.btn:focus {
+  box-shadow: rgb(37, 102, 120);
+  outline: none;
+}
+
+.btn:disabled {
+  background-color: rgb(55, 108, 123);
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.btn:active {
+  background-color: rgb(29, 101, 121);
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .section-leftside{
+        display: flex;
+        flex-direction: row;                    /* When the screen is at 800px wide the leftside of the section becomes a row and fits the whole screen width */
+        width: 100%;
+    }
+
+    header > img{
+        display: none;
+    }
+
+    .search-bar{
+        display: flex;
+        flex-direction: column;
+        height: 3%;                              /* When the screen is at 800px wide the search-bar centers on the row */
+        width: fit-content;
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+    .search-bar > h3{                           /* When the screen is at 800px wide the h3 inside the search-bar disappears */
+        display: none;
+    }
+
+    section{
+        flex-direction: column;
+        align-items: center;
+        position:static;
+    }
+
+    .container{
+        padding: 10px;                   
+        border-radius: 15px;
+        text-align: center;
+        max-width: fit-content;
+        max-height: fit-content;
+        margin: 0 auto;
+        border: 0;
+        background-color: #d4e4f3;
+        border: 1px solid black;
+        overflow: hidden;
+    }
+
+    .section-middle {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        background-color: #a2d2df;
+        padding: 1vw;
+    }
+    #search-student-lecture {
+        width: 25vw;
+    }
+
+    .listButtons {
+        padding: 1vw;
+        height: auto;
+        /* background-color: #d4e4f3; */
+        background-color: white;
+        border: 1px solid black;
+        margin-bottom: .2em; /* Add space between listButtons and resultTable */
+    }
+    
+    .listButtons > h3 {
+        margin: 0;
+        padding-bottom: 0.5vw;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {                  /* When the screen at 600px wide, most of the styles are same with 800px wide */
+
+    header > img{
+        display: none;
+    }
+
+    .search-bar{
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        height: 3%;
+        width: fit-content;
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+    .search-bar > h3{
+        display: none;
+    }
+
+    section{
+        flex-direction: column;
+        align-items: center;
+        position:static;
+    }
+
+    .container{
+        padding: 10px;                   
+        border-radius: 15px;
+        text-align: center;
+        max-width: fit-content;
+        max-height: fit-content;
+        margin: 0 auto;
+        border: 0;
+        background-color: #d4e4f3;
+        border: 1px solid black;
+        overflow: hidden;
+    }
+
+    .section-leftside{
+        width: 100%;
+        /* border-radius: 50px; */
+        background-color: #3b5786;              /* When the screen is 600 pixels wide, the contents of the sections become a column and are arranged one under the other  */
+        padding: 1vw; 
+        display: block;
+
+    }
+
+    .section-middle {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        background-color: #a2d2df;
+        padding: 1vw;
+    }
+    #search-student-lecture {
+        width: 45vw;
+    }
+
+    .listButtons {
+        padding: 1vw;
+        height: auto;
+        /* background-color: #d4e4f3; */
+        background-color: white;
+        border: 1px solid black;
+        margin-bottom: .2em; /* Add space between listButtons and resultTable */
+    }
+    
+    .listButtons > h3 {
+        margin: 0;
+        padding-bottom: 0.5vw;
+    }
+}

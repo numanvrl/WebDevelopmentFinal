@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/script.js" defer></script>
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+
+    <header>
+        <img src="../img/reading-book.png" alt="reading-book">     <!-- Header is holding the title of the page and an image to represent the student management part -->
+        <h1>Student Management System</h1>
+        
+    </header>
+    
+    
+     <section>      <!--  Section is holding all the other elements of the page which is add, update, input, search etc. -->
+
+            <!-- Section is divided into 2 parts  -->
+        
+        <div class="section-leftside">                          <!-- Section left side is holding the add/update student block, add/update lecture block and
+                                                                 add/update Student to lecture block is divided into 2 parts  -->
+                    <!-- Adding lecture part. -->
+                <div class="addLecture container">
+                    <h1>Add/Update Lecture</h1>
+                    <!-- Getting all the essential information about the lectures like Lecture name, lecture code, pointscale and ects of the lecture -->
+                <form>
+                    <label>Lecture Name</label> <br>
+                    <input type="text" name="lectureName" id="lectureName" required><br>
+                    <label>Lecture Code</label> <br>
+                    <input type="text" min="1" name="lectureCode" id="lectureCode" required><br>
+                    <br>
+                    <div class="options">
+                    <div class="select">
+                    <label>Pointscale</label>
+                    <select id="pointScale">
+                        <option value="7">7</option>
+                        <option value="10">10</option>
+                    </select> 
+                    </div>
+                    <div class="select">
+                    <label>ECTS</label>
+                    <select id="ects">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                    </div>
+                    <br>
+                    <div class="buttons">
+                        <input type="submit" class="btn" id="addLectureButton" value="Add" onclick="addLecture(event)">
+                        <input type="submit" class="btn" id="updateLectureButton" value="Update" onclick="updateLecture(event)">
+                    </div>
+                </form>
+                </div>
+                <br>
+                <!-- Adding Student -->
+                <div class="container">
+                <h1>Add & Update Student</h2>
+                <!-- Getting all the essential information about students like name, surname and id -->
+                <form>
+                    <label>Student Name</label> <br>
+                    <input type="text" name="studentName" id="studentName" required><br>
+                    <label>Student Surname</label> <br>
+                    <input type="text" name="studentSurname" id="studentSurname" required><br>
+                    <label>Student ID</label> <br>
+                    <input type="number" min="1" name="studentId" id="studentId" required><br><br>
+                    <div class="buttons">
+                        <input type="submit" class="btn" id="addStudentButton" value="Add" onclick="addStudent(event)">
+                        <input type="submit" class="btn" id="updateStudentButton" value="Update" onclick="updateStudent(event)">
+                    </div>
+                </form>
+                </div>
+                <br>
+                <!-- Student enrolls to the lecture -->
+                <div class="container">
+                    <h1>Add Student to Lecture</h2>
+                        <!-- This part is for getting the essential information to adding a student to a lecture -->
+                    <form>
+                        <label>Student ID</label> <br>
+                        <input type="text" name="add-studentId" id="add-studentId" required><br>
+                        <label>Lecture Code</label> <br>
+                        <input type="text" name="add-lectureCode" id="add-lectureCode" required><br>
+                        <label>Midterm Score</label> <br>
+                        <input type="number" name="midtermScore" id="midtermScore" required><br>
+                        <label>Final Score</label> <br>
+                        <input type="number" name="finalScore" id="finalScore" required><br><br>
+                        <div class="buttons">
+                            <input type="submit" class="btn" id="addStudentToLectureButton" value="Add"
+                            onclick="addSTLButton(event)">
+                            <input type="submit" class="btn" id="updateStudentToLectureButton" value="update"
+                            onclick="updateSTLButton(event)">
+                        </div>    
+                    </form>
+                </div>
+        </div>
+        <div class="section-middle">
+            <div class="search-bar">
+                <!-- Getting an option and an input from the user and retrieving data according to that -->
+                <h3>Search</h3>
+                <form>
+                    <!-- User can choose between searching a Student or a Lecture -->
+                    <select id="search_option">
+                        <option value="Student">Student</option>
+                        <option value="Lecture">Lecture</option>
+                    </select>
+                    <input type="text" name="search-student-lecture" id="search-student-lecture" placeholder="search a name" required>
+                    <input type="submit" class="btn" id="searchButton" value="Search"
+                            onclick="search(event)">
+                </form>
+            </div>
+                <!-- Creation of buttons for display students and lessons -->
+            <div class="listButtons">
+                <h3 class="resultHeader">Results</h3>
+                <button class="btn" id="listStudentsButton" onclick="createStudentsTable()">List Students</button>
+                <button class="btn" id="listLecturesButton" onclick="createLecturesTable()">List Lectures</button>
+            </div>
+            <br>
+            <!-- Table for the results -->
+            <div class="resultTable">
+                <table id="resultTable">
+                    <thead id="resultTableHead">
+                    </thead>
+                    <tbody id="resultTableBody">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+    
+</body>
+</html>
